@@ -34,7 +34,6 @@ class ThirdFragment : Fragment() {
     ): View {
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +45,6 @@ class ThirdFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        // scroll listener untuk pagination
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
                 if (dy > 0) {
@@ -73,11 +71,11 @@ class ThirdFragment : Fragment() {
             setFragmentResult("selectedUser", bundleOf("userName" to fullName))
             findNavController().popBackStack()
         }
+
         val layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = adapter
 
-        // divider horizontal antar item
         val divider = DividerItemDecoration(requireContext(), layoutManager.orientation)
         binding.recyclerView.addItemDecoration(divider)
     }
@@ -86,6 +84,8 @@ class ThirdFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             currentPage = 1
             adapter.setData(emptyList())
+            binding.tvEmptyState?.let { it.visibility = View.GONE }
+            binding.recyclerView.visibility = View.VISIBLE
             loadUsers()
         }
     }
@@ -102,9 +102,23 @@ class ThirdFragment : Fragment() {
                         totalPages = it.total_pages
                         if (currentPage == 1) {
                             adapter.setData(it.data)
+
+                            if (it.data.isEmpty()) {
+                                binding.tvEmptyState?.let { empty ->
+                                    empty.visibility = View.VISIBLE
+                                }
+                                binding.recyclerView.visibility = View.GONE
+                            } else {
+                                binding.tvEmptyState?.let { empty ->
+                                    empty.visibility = View.GONE
+                                }
+                                binding.recyclerView.visibility = View.VISIBLE
+                            }
+
                         } else {
                             adapter.addData(it.data)
                         }
+
                     }
                 } else {
                     Toast.makeText(context, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
