@@ -1,0 +1,15 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.InternTest" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <item name="android:fontFamily">@font/urbanist</item>
+        <item name="fontFamily">@font/urbanist</item>
+    </style>
+
+    <style name="Theme.InternTest" parent="Base.Theme.InternTest" />
+
+    <style name="RoundedImageStyle" parent="">
+        <item name="cornerSize">50%</item> <!-- 50% menjadikannya lingkaran -->
+    </style>
+</resources>

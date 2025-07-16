@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Intern Test</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="person_placeholder">Person Placeholder</string>
+    <string name="name">Name</string>
+    <string name="palindrome">Palindrome</string>
+    <string name="check">CHECK</string>
+    <string name="next">NEXT</string>
+    <string name="welcome">Welcome</string>
+    <string name="profile_name">John Doe</string>
+    <string name="selected_user_name">Selected User Name</string>
+    <string name="choose_a_user">Choose a User</string>
+    <string name="first_last_name">Firstname Lastname</string>
+    <string name="email">email@email.com</string>
+</resources>
