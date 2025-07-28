@@ -1,6 +1,7 @@
-# 📱 Suitmedia Intern Test App
+# 📱 Palindrome Checkber App
 
-A simple Android app developed for Suitmedia's internship technical test. This project showcases modern Android development practices using Material 3, Retrofit, and Jetpack Navigation with clear and concise UI logic.
+An Android application that demonstrates modern Android development practices using Material 3, Retrofit, and Jetpack Navigation.
+This project was built as a learning showcase for implementing clean UI logic, API integration, and navigation between multiple screens.
 
 ---
 
